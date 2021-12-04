@@ -59,7 +59,7 @@ namespace Lab19HW
             //Console.ReadKey();
 
 
-
+           
             //4
             Console.WriteLine("список, сгруппированный по типу процессора: ");
            
@@ -70,9 +70,9 @@ namespace Lab19HW
                          {
                              Proc = compProc.Key,
                          };
-
-            Console.WriteLine($"{p3.Id}{p3.Name}{p3.Proc}{p3.ProcChast}{p3.RAM}{p3.SSD}{p3.VideoMem}{p3.Price}{p3.Count}");
-            Console.WriteLine();
+            foreach (var group1 in fourth)
+            Console.WriteLine($"{group1.Proc} ");
+           
             Console.ReadKey();
 
 
@@ -86,8 +86,15 @@ namespace Lab19HW
                             Price = compPrice.Key,
                             BestPrice = compPrice.Max(x => x.Price)
                         };
-           
-            Console.WriteLine();
+            foreach (var group2 in fifth)
+                Console.WriteLine($"{group2.BestPrice} ");
+
+
+
+
+
+
+
             Console.ReadKey();
 
 
@@ -100,9 +107,9 @@ namespace Lab19HW
                              Price = compPrice.Key,
                              BadPrice = compPrice.Min(x => x.Price)
                          };
+            foreach (var group3 in fifth1)
 
-            
-            Console.WriteLine();
+                Console.WriteLine();
             Console.ReadKey();
 
 
