@@ -44,7 +44,7 @@ namespace Lab19HW
                 Console.WriteLine($"{p.Id}{p.Name}{p.Proc}{p.ProcChast}{p.RAM}{p.SSD}{p.VideoMem}{p.Price}{p.Count}");
             Console.ReadKey();
 
-            //2
+            ////2
             Console.Write("Укажите минимальный объем оперативной памяти: ");
             int second = Convert.ToInt32(Console.ReadLine());
             List<PC> ram = (from p1 in listPC where p1.RAM >= second select p1).ToList();
@@ -52,7 +52,7 @@ namespace Lab19HW
                 Console.WriteLine($"{p1.Id}{p1.Name}{p1.Proc}{p1.ProcChast}{p1.RAM}{p1.SSD}{p1.VideoMem}{p1.Price}{p1.Count}");
             Console.ReadKey();
 
-            //3
+            ////3
             Console.WriteLine("список, отсортированный по увеличению стоимости: ");
             var third = (from p2 in listPC orderby p2.Price select p2).ToList();
             foreach (var p2 in third)
@@ -68,7 +68,7 @@ namespace Lab19HW
                              Proc = compProc.Key,
                          };
             foreach (var group1 in fourth)
-                Console.WriteLine($"{group1.Proc} ");
+                Console.WriteLine(group1.Proc);
             Console.ReadKey();
 
             //5
@@ -85,17 +85,32 @@ namespace Lab19HW
             Console.ReadKey();
 
 
-            ////6  куда ANY????
-            Console.WriteLine("есть ли хотя бы один компьютер в количестве не менее 30 штук ");
+            //6  
+            Console.WriteLine("компьютеры в количестве не менее 30 штук ");
             List<PC> sixth = (from p5 in listPC where p5.Count >= 30 select p5).ToList();
             foreach (PC p5 in sixth)
                 Console.WriteLine($"{p5.Id}{p5.Name}{p5.Proc}{p5.ProcChast}{p5.RAM}{p5.SSD}{p5.VideoMem}{p5.Price}{p5.Count}");
             Console.ReadKey();
 
 
+            //6.1
+            Console.WriteLine("есть ли хотя бы один компьютер в количестве не менее 30 штук ");
+            bool result1 = listPC.Any(c => c.Count >= 30);
+            if (result1)
+            {
+                Console.WriteLine("Есть хотя бы один компьютер в количестве не менее 30 штук");
+            }
+            else
+            {
+                Console.WriteLine("Нет ни одного компьютера в количестве не менее 30 штук");
+            }
+            Console.ReadKey();
         }
+
+
     }
 }
+
 
 
 //Модель компьютера  характеризуется  кодом  и  названием  марки компьютера, типом  процессора, частотой  работы  процессора, объемом оперативной памяти, объемом жесткого диска, объемом памяти видеокарты, стоимостью компьютера в условных единицах и количеством экземпляров, имеющихся в наличии. Создать список, содержащий 6-10 записей с различным набором значений характеристик.
