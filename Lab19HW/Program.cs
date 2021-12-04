@@ -36,14 +36,14 @@ namespace Lab19HW
             new PC() { Id = 6,  Name =  "MSI",  Proc = "AMD",  ProcChast = "3,5 ГГц",  RAM = 16,  SSD = " SSD=512",  VideoMem = "4 ГБ  ",  Price = 73000,  Count = 35 },
             };
 
-
+            //1
             //Console.Write("Укажите название процессора: ");
             //string first = Console.ReadLine();
             //List<PC> proc = (from p in listPC where p.Proc == first select p).ToList();  //-все компьютеры с указанным процессором.
             //foreach (PC p in proc)
             //    Console.WriteLine($"{p.Id}{p.Name}{p.Proc}{p.ProcChast}{p.RAM}{p.SSD}{p.VideoMem}{p.Price}{p.Count}");
             //Console.ReadKey();
-
+            //2
             //Console.Write("Укажите минимальный объем оперативной памяти: ");
             //int second = Convert.ToInt32(Console.ReadLine());
             //List<PC> ram = (from p1 in listPC where p1.RAM >= second select p1).ToList(); //все компьютеры с объемом ОЗУ не ниже, чем указано
@@ -51,7 +51,7 @@ namespace Lab19HW
             //    Console.WriteLine($"{p1.Id}{p1.Name}{p1.Proc}{p1.ProcChast}{p1.RAM}{p1.SSD}{p1.VideoMem}{p1.Price}{p1.Count}");
             //Console.ReadKey();
 
-
+            //3
             //Console.WriteLine("список, отсортированный по увеличению стоимости: ");
             //var third = (from p2 in listPC orderby p2.Price select p2).ToList();  // по увличению стоимости+++
             //foreach (var p2 in third)
@@ -60,43 +60,36 @@ namespace Lab19HW
 
 
 
+            //4
+            //Console.WriteLine("список, сгруппированный по типу процессора: ");
+            //var fourth = (from p3 in listPC group p3 by p3.Price select p3).ToList();  // по увличению стоимости+++
+            //foreach (var p3 in fourth)
 
-            Console.WriteLine("список, сгруппированный по типу процессора: ");
-            var fourth = (from p3 in listPC group p3 by p3.Price select p).ToList();  // по увличению стоимости+++
-            foreach (var p3 in fourth)
+            //    Console.WriteLine();
+            //   Console.WriteLine($"{p3.Id}{p3.Name}{p3.Proc}{p3.ProcChast}{p3.RAM}{p3.SSD}{p3.VideoMem}{p3.Price}{p3.Count}");
+            //Console.ReadKey();
 
-                Console.WriteLine();
-               Console.WriteLine($"{p3.Id}{p3.Name}{p3.Proc}{p3.ProcChast}{p3.RAM}{p3.SSD}{p3.VideoMem}{p3.Price}{p3.Count}");
+            //5
+            Console.WriteLine(" Самый дорогой компьютер; ");
+            List<PC> fifth = (from p4 in listPC where p4.Price is    .max select p4).ToList();  
+            foreach (PC p4 in fifth)
+            Console.WriteLine($"{p4.Id}{p4.Name}{p4.Proc}{p4.ProcChast}{p4.RAM}{p4.SSD}{p4.VideoMem}{p4.Price}{p4.Count}");
+           
+            
+
+
+
+
+
+            //6  куда ANY????
+            Console.WriteLine("есть ли хотя бы один компьютер в количестве не менее 30 штук ");
+            List<PC> sixth = (from p5 in listPC where  p5.Count >= 30 select p5).ToList();                        // кол во больше 30, но не хотяб один...
+            foreach (PC p5 in sixth)
+            Console.WriteLine($"{p5.Id}{p5.Name}{p5.Proc}{p5.ProcChast}{p5.RAM}{p5.SSD}{p5.VideoMem}{p5.Price}{p5.Count}");
             Console.ReadKey();
 
 
 
-
-
-
-
-
-
-            //var proctipe = (from p in listPC group p by p.Proc);
-
-            //foreach (IGrouping<string, PC> g in proctipe)
-
-            //    Console.WriteLine(g.Key);
-            //    foreach (var t in g)
-            //        Console.WriteLine(t.Proc);
-            //    Console.WriteLine();
-
-
-
-
-            //List<PC> count = (from p in listPC where  p.Count >= 30 select p).ToList(); // кол во больше 30, но не хотяб один...
-            //foreach (PC p in count)
-
-
-
-
-            //Console.WriteLine($"{p.Id}{p.Name}{p.Proc}{p.ProcChast}{p.RAM}{p.SSD}{p.VideoMem}{p.Price}{p.Count}");
-            //Console.ReadKey();
 
 
         }
@@ -124,6 +117,16 @@ namespace Lab19HW
 //    .ToList();
 //foreach (PC p in pCs)
 
+
+
+//var proctipe = (from p in listPC group p by p.Proc);
+
+//foreach (IGrouping<string, PC> g in proctipe)
+
+//    Console.WriteLine(g.Key);
+//    foreach (var t in g)
+//        Console.WriteLine(t.Proc);
+//    Console.WriteLine();
 
 
 //Модель компьютера  характеризуется  кодом  и  названием  марки компьютера, типом  процессора, частотой  работы  процессора, объемом оперативной памяти, объемом жесткого диска, объемом памяти видеокарты, стоимостью компьютера в условных единицах и количеством экземпляров, имеющихся в наличии. Создать список, содержащий 6-10 записей с различным набором значений характеристик.
